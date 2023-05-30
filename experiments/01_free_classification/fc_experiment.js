@@ -10,6 +10,7 @@ const jsPsych = initJsPsych({
 
 let timeline = [];
 
+
 const irb = {
     type: jsPsychHtmlButtonResponse,
     stimulus: `
@@ -31,6 +32,21 @@ const irb = {
     }
 };
 timeline.push(irb);
+
+const map = {
+
+  type: jsPsychSketchpad,
+  prompt: '<p style="width:380px">Circle the mouth using red. Circle the eyes using blue.</p>',
+  prompt_location: 'abovecanvas',
+  stroke_color_palette: ['red', 'blue'],
+  stroke_color: 'red',
+  background_image: 'china_blankmap.jpeg',
+  canvas_width: 380,
+  canvas_height: 252
+
+}
+
+timeline.push(map);
 
 // const irb = {
 //     type: jsPsychHtmlButtonResponse,
