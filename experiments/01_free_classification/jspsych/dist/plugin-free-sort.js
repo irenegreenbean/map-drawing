@@ -5,8 +5,15 @@ var jsPsychFreeSort = (function (jspsych) {
       name: "free-sort",
       parameters: {
           /** Array of images to be displayed and sorted. */
-          stimuli: {
-              type: jspsych.ParameterType.IMAGE,
+          // stimuli: {
+          //     type: jspsych.ParameterType.IMAGE,
+          //     pretty_name: "Stimuli",
+          //     default: undefined,
+          //     array: true,
+          // },
+          /** The audio file to be played. */
+          stimulus: {
+              type: jspsych.ParameterType.AUDIO,
               pretty_name: "Stimuli",
               default: undefined,
               array: true,

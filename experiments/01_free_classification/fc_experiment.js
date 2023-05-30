@@ -4,7 +4,7 @@ const jsPsych = initJsPsych({
     message_progress_bar: "percentage complete",
     on_finish: function (data) {
         jsPsych.data.displayData('csv');
-        proliferate.submit({"trials": data.values()});
+        //proliferate.submit({"trials": data.values()});
       }
   });
 
@@ -41,12 +41,35 @@ const map = {
   stroke_color_palette: ['red', 'blue'],
   stroke_color: 'red',
   background_image: 'china_blankmap.jpeg',
-  canvas_width: 380,
-  canvas_height: 252
+  canvas_width: 750,
+  canvas_height: 550,
+  choices: ['Continue'],
 
 }
 
 timeline.push(map);
+
+
+
+let sorting_stimuli =[jsPsych.timelineVariable("stimulus")];
+for (var i = 1; i <= 12; i++) {
+    sorting_stimuli.push("amanda_" + i + ".wav");
+}
+
+
+const sort_trial = {
+    type: jsPsychFreeSort,
+    stimuli: sorting_stimuli,
+    stim_width: 80,
+    stim_height: 60,
+    sort_area_width: 500,
+    sort_area_height: 500,
+    prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+    //choices: ['Continue'],
+};
+
+timeline.push(sort_trial)
+
 
 // const irb = {
 //     type: jsPsychHtmlButtonResponse,
