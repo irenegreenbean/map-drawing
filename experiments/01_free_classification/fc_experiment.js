@@ -54,12 +54,12 @@ const map = {
 
 }
 
-timeline.push(map);
+// timeline.push(map);
 
 
 
 let sorting_stimuli =[jsPsych.timelineVariable("stimulus")];
-for (var i = 1; i <= 12; i++) {
+for (var i = 1; i <= 5; i++) {
     sorting_stimuli.push("amanda_" + i + ".wav");
 }
 

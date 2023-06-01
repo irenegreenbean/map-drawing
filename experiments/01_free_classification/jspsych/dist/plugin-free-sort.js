@@ -5,19 +5,19 @@ var jsPsychFreeSort = (function (jspsych) {
       name: "free-sort",
       parameters: {
           /** Array of images to be displayed and sorted. */
-          // stimuli: {
-          //     type: jspsych.ParameterType.IMAGE,
-          //     pretty_name: "Stimuli",
-          //     default: undefined,
-          //     array: true,
-          // },
-          /** The audio file to be played. */
-          stimulus: {
-              type: jspsych.ParameterType.AUDIO,
+          stimuli: {
+              type: jspsych.ParameterType.IMAGE,
               pretty_name: "Stimuli",
               default: undefined,
               array: true,
           },
+          /** The audio file to be played. */
+          // stimulus: {
+          //     type: jspsych.ParameterType.AUDIO,
+          //     pretty_name: "Stimuli",
+          //     default: undefined,
+          //     array: true,
+          // },
           /** Height of items in pixels. */
           stim_height: {
               type: jspsych.ParameterType.INT,
@@ -272,28 +272,30 @@ var jsPsychFreeSort = (function (jspsych) {
                   }
               }
               display_element.querySelector("#jspsych-free-sort-arena").innerHTML +=
-                  "<img " +
-                      'src="' +
-                      stimuli[i] +
-                      '" ' +
-                      'data-src="' +
-                      stimuli[i] +
-                      '" ' +
-                      'class="jspsych-free-sort-draggable" ' +
-                      'draggable="false" ' +
-                      'id="jspsych-free-sort-draggable-' +
-                      i +
-                      '" ' +
-                      'style="position: absolute; cursor: move; width:' +
-                      trial.stim_width +
-                      "px; height:" +
-                      trial.stim_height +
-                      "px; top:" +
-                      coords.y +
-                      "px; left:" +
-                      coords.x +
-                      'px;">' +
-                      "</img>";
+                  // "<img " +
+                  //     'src="' +
+                  //     stimuli[i] +
+                  //     '" ' +
+                  //     'data-src="' +
+                  //     stimuli[i] +
+                  //     '" ' +
+                  //     'class="jspsych-free-sort-draggable" ' +
+                  //     'draggable="false" ' +
+                  //     'id="jspsych-free-sort-draggable-' +
+                  //     i +
+                  //     '" ' +
+                  //     'style="position: absolute; cursor: move; width:' +
+                  //     trial.stim_width +
+                  //     "px; height:" +
+                  //     trial.stim_height +
+                  //     "px; top:" +
+                  //     coords.y +
+                  //     "px; left:" +
+                  //     coords.x +
+                  //     'px;">' +
+                  //     "</img>";
+                  "<audio controls src=\"" + stimuli[i] + "\" </audio>";
+
               init_locations.push({
                   src: stimuli[i],
                   x: coords.x,
