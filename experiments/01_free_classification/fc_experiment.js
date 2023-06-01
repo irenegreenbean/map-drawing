@@ -43,7 +43,14 @@ const map = {
   background_image: 'china_blankmap.jpeg',
   canvas_width: 750,
   canvas_height: 550,
-  choices: ['Continue'],
+  show_finished_button: true,
+  finished_button_label: '完了',
+  choices: ['d'],
+  save_final_image: true,
+  on_finish: function(data) {
+    console.log(data)
+  }
+
 
 }
 
