@@ -124,7 +124,7 @@ const instructions = {
         jsPsych.setProgressBar(0)
     }
 };
-timeline.push(instructions);
+// timeline.push(instructions);
 
 var likert_scale = [
   "Strongly Disagree", 
@@ -276,7 +276,7 @@ const trials = {
         ],
     timeline_variables: stimuli,
 };
-timeline.push(trials);
+// timeline.push(trials);
 
 // /* survey 1: demographic questions */
 const survey1 = {
@@ -380,7 +380,7 @@ const survey_family = {
   ],
   button_label_finish: 'Continue',
 };
-timeline.push(survey_family);
+// timeline.push(survey_family);
 
 
 // /* survey 2: language background questions */
@@ -398,7 +398,7 @@ const survey2a = {
   <input name="lang5" type="text" placeholder="Language 5">
   </p>`
 };
-timeline.push(survey2a);
+// timeline.push(survey2a);
 
 const survey2b = {
   type: jsPsychSurvey,
@@ -466,7 +466,7 @@ const survey2b = {
   ],
   button_label_finish: 'Continue',
 };
-timeline.push(survey2b);
+// timeline.push(survey2b);
 
 
 // /* payment information */
