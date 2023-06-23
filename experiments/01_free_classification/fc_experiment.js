@@ -58,10 +58,11 @@ const map = {
 
 
 
-let sorting_stimuli =[jsPsych.timelineVariable("stimulus")];
+let sorting_stimuli =[];
 for (var i = 1; i <= 5; i++) {
     sorting_stimuli.push("amanda_" + i + ".wav");
 }
+console.log(sorting_stimuli)
 
 
 const sort_trial = {

@@ -271,30 +271,51 @@ var jsPsychFreeSort = (function (jspsych) {
                       coords = l_coords[Math.floor(i * 0.5)];
                   }
               }
+              console.log(stimuli[i])
+              // display_element.querySelector("#jspsych-free-sort-arena").innerHTML +=
+              //     "<audio " +
+              //         'src="' +
+              //         stimuli[i] + 
+              //         '" ' +
+              //         'data-src="' +
+              //         stimuli[i] +
+              //         '" ' +
+              //         // 'class="jspsych-free-sort-draggable" ' +
+              //         'draggable="false" ' +
+              //         'id="jspsych-free-sort-draggable-' +
+              //         i +
+              //         '" ' +
+              //         'style="position: absolute; cursor: move; width:' +
+              //         trial.stim_width +
+              //         "px; height:" +
+              //         trial.stim_height +
+              //         "px; top:" +
+              //         coords.y +
+              //         "px; left:" +
+              //         coords.x +
+              //         'px;">' +
+              //         "</audio>";
+                  // "<audio controls src=\"" + stimuli[i] + "\" </audio>";
+
               display_element.querySelector("#jspsych-free-sort-arena").innerHTML +=
-                  // "<img " +
-                  //     'src="' +
-                  //     stimuli[i] +
-                  //     '" ' +
-                  //     'data-src="' +
-                  //     stimuli[i] +
-                  //     '" ' +
-                  //     'class="jspsych-free-sort-draggable" ' +
-                  //     'draggable="false" ' +
-                  //     'id="jspsych-free-sort-draggable-' +
-                  //     i +
-                  //     '" ' +
-                  //     'style="position: absolute; cursor: move; width:' +
-                  //     trial.stim_width +
-                  //     "px; height:" +
-                  //     trial.stim_height +
-                  //     "px; top:" +
-                  //     coords.y +
-                  //     "px; left:" +
-                  //     coords.x +
-                  //     'px;">' +
-                  //     "</img>";
-                  "<audio controls src=\"" + stimuli[i] + "\" </audio>";
+                "<div " +
+                // 'src=' + (the blank image)
+                    'data-src="' +
+                    stimuli[i] +
+                    '" ' +
+                    'class="jspsych-free-sort-draggable my-special-class" ' +
+                    'draggable="false" ' +
+                    'id="jspsych-free-sort-draggable-' +
+                    i +
+                    '" ' +
+                    'style="position: absolute; cursor: move; width: 300' +
+                    "px; height: 54" +
+                    "px; top:" +
+                    coords.y +
+                    "px; left:" +
+                    coords.x +
+                    'px;"><audio controls src=' + stimuli[i] + ' </audio>' +
+                    "</div>"; // make this an <img> again, overlay the white box object 300 x 54
 
               init_locations.push({
                   src: stimuli[i],
@@ -314,6 +335,7 @@ var jsPsychFreeSort = (function (jspsych) {
           let cur_in = false;
           // draggable items
           const draggables = display_element.querySelectorAll(".jspsych-free-sort-draggable");
+           console.log(draggables)
           // button (will show when all items are inside) and border (will change color)
           const border = display_element.querySelector("#jspsych-free-sort-border");
           const button = display_element.querySelector("#jspsych-free-sort-done-btn");

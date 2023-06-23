@@ -12,3 +12,8 @@
 .option {
     font-size: 24px;
 }
+
+.my-special-class {
+    border: 10px solid black;
+    background-color: blue;
+}
