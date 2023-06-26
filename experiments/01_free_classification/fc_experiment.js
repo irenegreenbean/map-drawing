@@ -54,7 +54,19 @@ const map = {
 
 }
 
-// timeline.push(map);
+const label = {
+  type: jsPsychSurveyText,
+  preamble: () => {
+    var imageData = jsPsych.data.get().last(1).values()[0].png;
+    return `<img src="${imageData}"></img>`;
+  },
+  questions: [
+    {prompt: 'What animal did you draw?'}
+  ]
+}
+
+timeline.push(map);
+timeline.push(label);
 
 
 
@@ -76,7 +88,7 @@ const sort_trial = {
     //choices: ['Continue'],
 };
 
-timeline.push(sort_trial)
+// timeline.push(sort_trial)
 
 
 // const irb = {
