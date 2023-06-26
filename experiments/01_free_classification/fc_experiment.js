@@ -44,6 +44,10 @@ const intro1 = {
             <p>此实验不会超过 10 分钟，完成后您将获得 10人民币 的赔偿金。</p>
             <p>点击“继续”继续。</p>`,
     choices: ['继续'],
+        on_start: function() {
+        jsPsych.setProgressBar(0)
+    }
+
 };
 timeline.push(intro1);
 
