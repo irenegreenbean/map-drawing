@@ -1,51 +1,98 @@
 const jsPsych = initJsPsych({
     show_progress_bar: true,
-    auto_update_progress_bar: false,
-    message_progress_bar: "percentage complete",
+    auto_update_progress_bar: true,
+    message_progress_bar: "实验完成程度线",
     on_finish: function (data) {
-        jsPsych.data.displayData('csv');
-        //proliferate.submit({"trials": data.values()});
+        // jsPsych.data.displayData('csv');
+        proliferate.submit({"trials": data.values()});
       }
   });
 
 let timeline = [];
 
 
+
 const irb = {
     type: jsPsychHtmlButtonResponse,
     stimulus: `
     <p style="width: 1000px; margin-bottom: -250px">
-    We invite you to participate in a research study on language production and comprehension.
-    <BR><BR>Your experimenter will ask you to do a linguistic task such as reading sentences or words, naming pictures or describing scenes, making up sentences of your own, or participating in a simple language game.
-    <BR><BR>There are no risks or benefits of any kind involved in this study.
-    <BR><BR>You will be paid for your participation at the posted rate.
+    您被邀请参加一项研究。
+    <BR><BR>您会完成一项跟语言有关的任务，例如读或听一些字、描述图片或场景、造句、或完成简单的语言游戏。
+    <BR><BR>本研究中没有已知的风险、成本或不适。
+    <BR><BR>您将按照公布的费率支付被发到一份赔偿金您的参与费用。
     <BR><BR>
-    If you agree to participate, please proceed to the study tasks.
+    如果您同意参与这项研究，请继续。
+    <BR><BR>
+    <BR><BR>
     </p>
     <p style="width: 1000px; font-size: 9pt; position: relative; top: 330px; padding-bottom: 30px; text-align: justify">
-    If you have read this form and have decided to participate in this experiment, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at anytime without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written data resulting from the study. You may print this form for your records.
-    <BR><BR>CONTACT INFORMATION: If you have any questions, concerns or complaints about this research study, its procedures, risks and benefits, you should contact the Protocol Director Meghan Sumner at (650)-725-9336. If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906. You can also write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA.
+    如果您已读完此表格并决定参与此项目，请明白您的参与是自愿的，您有权随时撤回您的同意或停止参与，而不会受到惩罚或失去您原本可以享有的利益有权。 您有权拒绝回答任何问题。 您的个人隐私将在研究产生的所有已发布和书面数据中得到保护。
+    <BR><BR>联系信息：问题、疑虑或投诉：如果您对本研究、其程序、风险和益处有任何问题、疑虑或投诉，请致电 (650) 723-4284 联系 Meghan Sumner 教授。如果您对这项研究的进行方式不满意，或者如果您对研究或您作为参与者的权利有任何疑虑、投诉或一般问题，请联系斯坦福机构审查委员会 (IRB) 发言与独立于研究团队的人联系 (650)-723-2480 或拨打免费电话 1-866-680-2906。 您也可以致函 Stanford IRB, Stanford University, Stanford, CA 94305-5401 或发送电子邮件至 irbnonmed@stanford.edu。
     </p>`,
-    choices: ['Continue'],
+    choices: ['继续'],
     on_start: function() {
         jsPsych.setProgressBar(0)
     }
 };
 timeline.push(irb);
 
+/* eligibility */
+const intro1 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus:  `<p>只有年满 18 岁的中国国民才能完成这项研究。</p>
+            <p>>请与其他中国国民分享此链接，但不要多次参与此研究。您不会多次获得补偿。</p>
+            <p>此实验不会超过 10 分钟，完成后您将获得 10人民币 的赔偿金。</p>
+            <p>点击“继续”继续。</p>`,
+    choices: ['继续'],
+};
+timeline.push(intro1);
+
+const intro_chinese = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus:  `请在一间安静的屋子里做这个实验。
+    <BR><BR>请用电脑来做这个实验。
+    <BR><BR>请按空格键继续。`,
+    choices: [" "],
+
+    on_start: function() {
+        jsPsych.setProgressBar(0)
+    }
+};
+timeline.push(intro_chinese);
+
+
+const instructions = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus:  `在本实验中，你将看到一张中国大陆及周边外围地区的空白地图。您将使用计算机鼠标在地图上绘制区域，这些区域显示人们说普通话不同的地方。
+    <BR><BR>绘制区域后，系统会让您标记所绘制的每个区域。
+    <BR><BR>然后，您将回答一系列有关您的语言背景的简短问题。
+    <BR><BR>请按空格键继续。`,
+    choices: [" "],
+    on_start: function() {
+        jsPsych.setProgressBar(0)
+    }
+};
+timeline.push(instructions);
+
 const map = {
 
   type: jsPsychSketchpad,
-  prompt: '<p style="width:380px">Circle the mouth using red. Circle the eyes using blue.</p>',
+  prompt: '<p style="width:380px">请在以下的地图上画圈，显示您认为人们说普通话方式不同的地方。</p>',
   prompt_location: 'abovecanvas',
-  stroke_color_palette: ['red', 'blue'],
+  stroke_color_palette: ['red'],
   stroke_color: 'red',
   background_image: 'china_blankmap.jpeg',
   canvas_width: 750,
   canvas_height: 550,
   show_finished_button: true,
-  finished_button_label: '完了',
-  choices: ['d'],
+  finished_button_label: '全画完了',
+  show_clear_button: true,
+  clear_button_label: '清除',
+  show_undo_button: true,
+  undo_button_label: '撤消',
+  show_redo_button: true,
+  redo_button_label: '重做',
+  // choices: ['d'],
   save_final_image: true,
   on_finish: function(data) {
     console.log(data)
@@ -61,7 +108,7 @@ const label = {
     return `<img src="${imageData}"></img>`;
   },
   questions: [
-    {prompt: 'What animal did you draw?'}
+    {prompt: '请列出您画出来所有区域的标签。'}
   ]
 }
 
@@ -70,23 +117,23 @@ timeline.push(label);
 
 
 
-let sorting_stimuli =[];
-for (var i = 1; i <= 5; i++) {
-    sorting_stimuli.push("amanda_" + i + ".wav");
-}
-console.log(sorting_stimuli)
+// let sorting_stimuli =[];
+// for (var i = 1; i <= 5; i++) {
+//     sorting_stimuli.push("amanda_" + i + ".wav");
+// }
+// console.log(sorting_stimuli)
 
 
-const sort_trial = {
-    type: jsPsychFreeSort,
-    stimuli: sorting_stimuli,
-    stim_width: 80,
-    stim_height: 60,
-    sort_area_width: 500,
-    sort_area_height: 500,
-    prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
-    //choices: ['Continue'],
-};
+// const sort_trial = {
+//     type: jsPsychFreeSort,
+//     stimuli: sorting_stimuli,
+//     stim_width: 80,
+//     stim_height: 60,
+//     sort_area_width: 500,
+//     sort_area_height: 500,
+//     prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+//     //choices: ['Continue'],
+// };
 
 // timeline.push(sort_trial)
 
@@ -112,184 +159,6 @@ const sort_trial = {
 // timeline.push(intro_slide);
 
 // how to get things to show up in chinese
-const intro_chinese = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus:  `请在一间安静的屋子里做这个实验。
-    <BR><BR>请用电脑来做这个实验。
-    <BR><BR>请戴上您的耳机，用耳机来做这个实验。
-    <BR><BR>请按空格键继续。`,
-    choices: [" "],
-
-    on_start: function() {
-        jsPsych.setProgressBar(0)
-    }
-};
-timeline.push(intro_chinese);
-
-
-const instructions = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus:  `In this experiment, you will listen to short audio clips.
-    <BR><BR>After listening to each clip, please evaluate the speaker by indicating how much you agree or disagree with the provided statements.
-    <BR><BR>Press the SPACE BAR to continue.`,
-    choices: [" "],
-    on_start: function() {
-        jsPsych.setProgressBar(0)
-    }
-};
-// timeline.push(instructions);
-
-var likert_scale = [
-  "Strongly Disagree", 
-  "Disagree", 
-  "Somewhat Disagree",
-  "Neutral", 
-  "Somewhat Agree",
-  "Agree", 
-  "Strongly Agree"
-];
-
-/* create array of stimuli and randomize stimuli*/
-let tv_array = create_tv_array(trial_objects);
-let stimuli = shuffle_array(tv_array);
-
-/* create array of attributes and randomize attribute order per participant */
-let raw_attributes = [
-                {prompt: "This speaker is FRIENDLY.", name: 'Friendly', labels: likert_scale, required: true},
-                // {prompt: "This speaker is KIND.", name: 'Kind', labels: likert_scale, required: true},
-                // {prompt: "This speaker is HONEST.", name: 'Honest', labels: likert_scale, required: true},
-                // {prompt: "This speaker is LIKEABLE.", name: 'Likeable', labels: likert_scale, required: true},
-                // {prompt: "This speaker is RELIABLE.", name: 'Reliable', labels: likert_scale, required: true},
-                // {prompt: "This speaker is HELPFUL.", name: 'Helpful', labels: likert_scale, required: true},
-                // {prompt: "This speaker is CONFIDENT.", name: 'Confident', labels: likert_scale, required: true},
-                // {prompt: "This speaker is AMBITIOUS.", name: 'Ambitious', labels: likert_scale, required: true},
-                // {prompt: "This speaker is INTELLIGENT.", name: 'Intelligent', labels: likert_scale, required: true},
-                // {prompt: "This speaker is EDUCATED.", name: 'Educated', labels: likert_scale, required: true},
-                // {prompt: "This speaker is SELF CONFIDENT.", name: 'Self Confident', labels: likert_scale, required: true},
-                // {prompt: "This speaker is WEALTHY.", name: 'Wealthy', labels: likert_scale, required: true},
-                // {prompt: "This speaker is LEADERSHIP.", name: 'Leadership', labels: likert_scale, required: true},
-                // {prompt: "This speaker is TRUSTWORTHY.", name: 'Trustworthy', labels: likert_scale, required: true},
-                // {prompt: "This speaker is SINCERE.", name: 'Sincere', labels: likert_scale, required: true},
-                // {prompt: "This speaker is HUMOROUS.", name: 'Humorous', labels: likert_scale, required: true},
-                // {prompt: "This speaker is MODEST.", name: 'Modest', labels: likert_scale, required: true},
-                // {prompt: "This speaker is CONTENT.", name: 'Content', labels: likert_scale, required: true},
-                // {prompt: "This speaker is NOT SELFISH.", name: 'Not Selfish', labels: likert_scale, required: true},
-                // {prompt: "This speaker is COURTEOUS.", name: 'Courteous', labels: likert_scale, required: true},
-                // {prompt: "This speaker is FAIR.", name: 'Fair', labels: likert_scale, required: true},
-                // {prompt: "This speaker is OBLIGING.", name: 'Obliging', labels: likert_scale, required: true},
-                // {prompt: "This speaker is DILIGENT.", name: 'Diligent', labels: likert_scale, required: true},
-                // {prompt: "This speaker is SOCIAL STATUS.", name: 'Social Status', labels: likert_scale, required: true},
-                // {prompt: "This speaker is NOT SUPERSTITIOUS.", name: 'Not Superstitious', labels: likert_scale, required: true},
-                // {prompt: "This speaker is OPEN.", name: 'Open', labels: likert_scale, required: true},
-                // {prompt: "This speaker is GOOD LOOKING.", name: 'Good Looking', labels: likert_scale, required: true},
-                // {prompt: "This speaker is HAVING CHARACTER.", name: 'Having Character', labels: likert_scale, required: true},
-                ];
-
-
-            
-let attributes = shuffle_array(raw_attributes);
-
-let filepath = function getaudio() {
-    return jsPsych.timelineVariable("stimulus")
-  };
-
-let audio_path = "";
-let clip_id = "";
-let speaker_id = "";
-
-/* rating trials */
-const trials = {
-    on_timeline_start: function() {
-        jsPsych.setProgressBar(jsPsych.getProgressBarCompleted())
-    },
-    timeline: [
-
-        {
-            type: jsPsychAudioKeyboardResponse,
-            choices: ['NO_KEYS'],
-            stimulus: jsPsych.timelineVariable("stimulus"),
-            response_allowed_while_playing: false,
-            trial_ends_after_audio: true,
-            prompt: `Listen to this audio clip.`,
-            on_start: function() {
-                jsPsych.setProgressBar(jsPsych.getProgressBarCompleted())
-            },
-        },
-        {
-            type: jsPsychSurveyLikert,
-            preamble: function() {
-              new_audio_path = "<audio controls src=" + '"' + jsPsych.timelineVariable("stimulus") + '"' + ">";
-              return `<p>Press play to listen to the audio again.</p>
-              <p>${new_audio_path}</p>
-              <p>Rate how much you agree or disagree with the following statements:</p>`
-            },
-            questions: function() {
-              return attributes
-            },
-            data: jsPsych.timelineVariable('data'),
-            on_finish: function(data) {
-                console.log(data.trial_index)
-                console.log(data.trial_index/78)
-                console.log(jsPsych.getProgressBarCompleted())
-                jsPsych.setProgressBar(data.trial_index/78);
-                console.log(jsPsych.getProgressBarCompleted())
-
-            }
-        },
-        {
-          type: jsPsychSurveyText,
-          preamble: function() {
-              new_audio_path = "<audio controls src=" + '"' + jsPsych.timelineVariable("stimulus") + '"' + ">";
-              return `<p>Press play to listen to the audio again.</p>
-              <p>${new_audio_path}</p>
-              <p>Rate how much you agree or disagree with the following statements:</p>`
-            },
-          questions: [
-            {
-            prompt: 'Where do you think this person is from?',
-            required: true
-            }
-          ],
-          // data: jsPsych.timelineVariable('place'),
-          // required: true,
-          // how to collect data? also why won't this let me make it required??
-
-        },
-
-        // {
-        //     type: jsPsychSurvey,
-        //     pages: [
-        //     [
-        //     {
-        //         type: 'likert',
-        //         prompt: function() {
-        //           new_audio_path = "<audio controls src=" + '"' + jsPsych.timelineVariable("stimulus") + '"' + ">";
-        //           return `<p>Press play to listen to the audio again.</p>
-        //           <p>${new_audio_path}</p>
-        //           <p>Rate how much you agree or disagree with the following statements:</p>`
-        //         },
-        //         questions: function() {
-        //           return attributes
-        //         },
-        //         data: jsPsych.timelineVariable('data'),
-
-        //     },
-        //       {
-
-        //         type: 'text',
-        //         prompt: "Where is this person from?", 
-        //         // placeholder: 'City, State, Country',
-        //         name: 'birthplace', 
-        //         required: true,
-        //       }, 
-        //     ],
-        //   ],
-        // },
-
-        ],
-    timeline_variables: stimuli,
-};
-// timeline.push(trials);
 
 // /* survey 1: demographic questions */
 const survey1 = {
@@ -298,54 +167,42 @@ const survey1 = {
     [
       {
         type: 'html',
-        prompt: `<p style="color: #000000">Please answer the following questions:</p>`,
+        prompt: `<p style="color: #000000">请回答以下的问题。</p>`,
       },
       {
         type: 'multi-choice',
-        prompt: "What is your citizenship status?",
+        prompt: "您的公民身份是什么？",
         name: 'citizenship',
-        options: ['Peoples Republic of China (China)', 'Republic of China (Taiwan)', 'Singapore', 'Other', 'Prefer not to answer'],
+        options: ['中华人民共和国（中国）', '其他国家身份', '不想回答'],
         required: true
       },
       {
         type: 'multi-choice',
-        prompt: "What is your gender?",
+        prompt: "您的性别是什么？",
         name: 'gender',
-        options: ['Male', 'Female', 'Non-binary', 'Other', 'Prefer not to answer'],
+        options: ['男性', '女性', '非二元性别', '其他性别', '不想回答'],
         required: false,
       },
       {
         type: 'drop-down',
-        prompt: "What year were you born?",
+        prompt: "您哪一年出生？",
         name: 'age',
         options: ['2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984', '1983', '1982', '1981', '1980', '1979', '1978', '1977', '1976', '1975', '1974', '1973', '1972', '1971', '1970', '1969', '1968', '1967', '1966', '1965', '1964', '1963', '1962', '1961', '1960', '1959', '1958', '1957', '1956', '1955', '1954', '1953', '1952', '1951', '1950', '1949', '1948', '1947', '1946', '1945', '1944', '1943', '1942', '1941', '1940', '1939', '1938', '1937', '1936', '1935', '1934', '1933', 'Prefer not to answer'],
         required: true,
       },
-      {
-        type: 'multi-select',
-        prompt: "What is your race/ethnicity group? Please select all that apply.",
-        name: 'race',
-        options: ['Chinese', 'Cantonese', 'Malay', 'Indian', 'Other', 'Prefer not to answer'],
-        required: true,
-      },
       // {
-      //   type: 'text',
-      //   prompt: "What is your estimated total monthly household income (in Singapore dollars)?",
-      //   name: 'income',
-      //   textbox_columns: 8,
-      //   input_type: "number",
-      //   required: true,
-      // },
-      {
-        type: 'multi-choice',
-        prompt: "What is your highest level of education?",
-        name: 'education',
-        options: ['No qualification', 'Primary school', 'Secondary school', 'Junior college/Polytechnic', 'Undergraduate degree', 'Postgraduate degree', 'Prefer not to answer'],
-        required: false,
-      }
+      //   type: 'multi-choice',
+      //   prompt: "What is your highest level of education?",
+      //   name: 'education',
+      //   options: ['No qualification', 'Primary school', 'Secondary school', 'Junior college/Polytechnic', 'Undergraduate degree', 'Postgraduate degree', 'Prefer not to answer'],
+      //   required: false,
+      // }
     ]
   ],
-  button_label_finish: 'Continue',
+  on_finish: function(data) {
+      jsPsych.setProgressBar(data.trial_index/140);
+    },
+  button_label_finish: '继续',
 };
 timeline.push(survey1);
 
@@ -357,61 +214,79 @@ const survey_family = {
     [
       {
         type: 'html',
-        prompt: `<p style="color: #000000">Please answer the following questions:</p>`,
+        prompt: `<p style="color: #000000">请回答以下的问题。</p>`,
       },
 
       {
         type: 'text',
-        prompt: "Where do you live now (e.g. province, city)?",
+        prompt: "您现在住哪里？（比如，国家、省、县、城市、等等）",
         name: 'now_live',
         input_type: "text",
         required: true,
       },
       {
         type: 'text',
-        prompt: "Where is your family from (e.g. province, city)?",
-        name: 'family_from',
+        prompt: "你父亲的家人来自哪里？（比如，国家、省、县、城市、等等）",
+        name: 'dad_from',
+        input_type: "text",
+        required: true,
+      },
+            {
+        type: 'text',
+        prompt: "你母亲的家人来自哪里？（比如，国家、省、县、城市、等等）",
+        name: 'mom_from',
         input_type: "text",
         required: true,
       },
       {
         type: 'multi-choice',
-        prompt: "Have you moved before in your life?",
+        prompt: "您有没有搬过家？",
         name: 'moved',
-        options: ['Yes', 'No'],
+        options: ['有', '没有'],
         required: true,
       },
         {
         type: 'text',
-        prompt: "If you have moved, where did you move and for how long?",
+        prompt: "如果您搬过家，您从哪里搬到哪里？大概在每个地方待得多久？",
         name: 'moved_places',
         input_type: "text",
         required: false,
       },
+        {
+        type: 'multi-choice',
+        prompt: "您觉得自己属于北方人还是南方人？",
+        name: 'north_or_south',
+        options: ['北方人', '南方人', '两个都是', '两个都不是', '不想回答'],
+        required: true,
+      },
 
     ]
   ],
-  button_label_finish: 'Continue',
+    on_finish: function(data) {
+      jsPsych.setProgressBar(data.trial_index/140);
+    },
+  button_label_finish: '继续',
 };
-// timeline.push(survey_family);
+timeline.push(survey_family);
 
 
 // /* survey 2: language background questions */
 const survey2a = {
   type: jsPsychSurveyHtmlForm,
-  preamble: `<p>What languages do you speak?</p>
-  <p>Please indicate up to 5 languages and list them <b>in order of descending frequency of use</b>, i.e., Language 1 is the most frequently spoken language, Language 2 the second-most frequently spoken language, and so on.</p>
-  <p>For example, if Mandarin Chinese is Language 1, Cantonese is Language 2, and Hokkien is Language 3, that means you speak Mandarin Chinese the most frequently, Cantonese the second-most frequently, and Hokkien the least frequently.
+  preamble: `<p>您会说哪些语言？</p>
+  <p>请在以下列出最多 5 种语言，并<b>按使用频率降序排列</b>，也就是说，语言 1 是最常用的语言，语言 2 是第二常用的语言。</p>
+  <p>比如，如果普通话是第一语言，粤语是第二语言，台语是第三语言，这意味着您用普通话最多，粤语第二，台语最少。
   </p>`,
   html: `<p>
-  <input name="lang1" type="text" placeholder="Language 1" required><BR><BR>
-  <input name="lang2" type="text" placeholder="Language 2"><BR><BR>
-  <input name="lang3" type="text" placeholder="Language 3"><BR><BR>
-  <input name="lang4" type="text" placeholder="Language 4"><BR><BR>
-  <input name="lang5" type="text" placeholder="Language 5">
-  </p>`
+  <input name="lang1" type="text" placeholder="语言 1" required><BR><BR>
+  <input name="lang2" type="text" placeholder="语言 2"><BR><BR>
+  <input name="lang3" type="text" placeholder="语言 3"><BR><BR>
+  <input name="lang4" type="text" placeholder="语言 4"><BR><BR>
+  <input name="lang5" type="text" placeholder="语言 5">
+  </p>`,
+  button_label: '继续',
 };
-// timeline.push(survey2a);
+timeline.push(survey2a);
 
 const survey2b = {
   type: jsPsychSurvey,
@@ -419,32 +294,32 @@ const survey2b = {
     [
       {
         type: 'multi-choice',
-        prompt: "Do you speak Mandarin Chinese?",
+        prompt: "您会讲普通话吗？",
         name: 'mandarin',
-        options: ['Yes', 'No'],
+        options: ['会', '不会', '不想回答'],
         required: true,
       },
       {
         type: 'text',
-        prompt: "How many hours a day do you spend interacting in Mandarin Chinese?",
+        prompt: "您每天大概会用几个小时的普通话？",
         name: 'mandarin_hours',
         input_type: "number",
         required: true,
       },
       {
         type: 'multi-choice',
-        prompt: "Do your friends speak Mandarin Chinese?",
+        prompt: "您的朋友们会用普通话吗？",
         name: 'mandarin_friends',
-        options: ['Yes', 'No'],
+        options: ['会', '不会', '不想回答'],
         required: true,
       },
       {
         type: 'likert',
-        prompt: "How often do your friends speak Mandarin Chinese?",
+        prompt: "您和朋友们在一起的时候会用多少普通话？",
         name: 'mandarin_friends_frequency',
         required: true,
-        likert_scale_min_label: 'Never',
-        likert_scale_max_label: 'All the time',
+        likert_scale_min_label: '从来不用',
+        likert_scale_max_label: '我们只会用普通',
         likert_scale_values: [
           { value: 1 },
           { value: 2 },
@@ -455,18 +330,47 @@ const survey2b = {
       },
       {
         type: 'multi-choice',
-        prompt: "Does your family speak Mandarin Chinese?",
+        prompt: "您的家人会用普通话吗？",
         name: 'mandarin_family',
-        options: ['Yes', 'No'],
+        options: ['会', '不会', '不想回答'],
         required: true,
       },
       {
         type: 'likert',
-        prompt: "How often does your family speak Mandarin Chinese?",
+        prompt: "您和家人在一起的时候会用多少普通话？",
         name: 'mandarin_family_frequency',
         required: true,
-        likert_scale_min_label: 'Never',
-        likert_scale_max_label: 'All the time',
+        likert_scale_min_label: '从来不用',
+        likert_scale_max_label: '我们只会用普通话',
+        likert_scale_values: [
+          { value: 1 },
+          { value: 2 },
+          { value: 3 },
+          { value: 4 },
+          { value: 5 }
+        ]
+      },
+      {
+        type: 'multi-choice',
+        prompt: "您的家人会用其他方言吗？",
+        name: 'dialect',
+        options: ['会', '不会', '不想回答'],
+        required: true,
+      },
+      {
+        type: 'text',
+        prompt: "您的家人会用哪些方言？请列出来。",
+        name: 'what_dialects',
+        input_type: "text",
+        required: false,
+      },
+      {
+        type: 'likert',
+        prompt: "您和家人在一起的时候会用多少方言？",
+        name: 'dialect_family_frequency',
+        required: false,
+        likert_scale_min_label: '从来不用',
+        likert_scale_max_label: '我们只会用方言',
         likert_scale_values: [
           { value: 1 },
           { value: 2 },
@@ -477,24 +381,45 @@ const survey2b = {
       },
     ],
   ],
-  button_label_finish: 'Continue',
+    on_finish: function(data) {
+      jsPsych.setProgressBar(data.trial_index/140);
+    },
+  button_label_finish: '继续',
 };
-// timeline.push(survey2b);
+timeline.push(survey2b);
 
 
 // /* payment information */
-// const payment = {
-//   type: jsPsychSurveyText,
-//   questions: [
-//     {
-//       prompt: `
-//             <p>Please provide your email address in the field below for participant reimbursement purposes.</p>
-//             `,
-//       name: 'payment'
-//     }
-//   ]
-// };
-// timeline.push(payment);
+const payment = {
+  type: jsPsychSurveyText,
+  questions: [
+    {
+      prompt: `
+            <p>请在以下的空处提供您的电子邮件 (email)。研究人员将通过此电子邮件与您联系来给您您参加此实验的补偿金。</p>
+            `,
+      name: 'payment'
+
+    }
+    // button_label: '继续',
+  ],
+    on_finish: function(data) {
+      jsPsych.setProgressBar(data.trial_index/140);
+    },
+  button_label: '继续',
+};
+timeline.push(payment);
+
+// /* thank u */
+const thankyou = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `
+            <p>感谢您完成实验！</p>
+            <p>我们将尽快与您联系以安排补偿金。</p>
+            <p>请点击“完成”按钮提交您的回答并完成研究。</p>
+      `,
+  choices: ["完成"],
+};
+timeline.push(thankyou);
 
 // /* future study? */
 // const futurestudies = {
@@ -525,6 +450,7 @@ const survey2b = {
 //   choices: ["Submit"],
 // };
 // timeline.push(thankyou);
+
 
 jsPsych.run(timeline);
 
