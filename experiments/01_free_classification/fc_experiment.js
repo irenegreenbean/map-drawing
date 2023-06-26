@@ -3,8 +3,8 @@ const jsPsych = initJsPsych({
     auto_update_progress_bar: true,
     message_progress_bar: "实验完成程度线",
     on_finish: function (data) {
-        jsPsych.data.displayData('csv');
-        // proliferate.submit({"trials": data.values()});
+        // jsPsych.data.displayData('csv');
+        proliferate.submit({"trials": data.values()});
       }
   });
 
