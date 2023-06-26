@@ -109,7 +109,8 @@ const label = {
   },
   questions: [
     {prompt: '请列出您画出来所有区域的标签。'}
-  ]
+  ],
+  required: true,
 }
 
 timeline.push(map);
