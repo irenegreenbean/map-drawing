@@ -112,9 +112,11 @@ const label = {
     return `<img src="${imageData}"></img>`;
   },
   questions: [
-    {prompt: '请列出您画出来所有区域的标签。'}
+    {prompt: '请列出您画出来所有区域的标签。'},
+    required: true,
   ],
-  required: true,
+  button_label: '继续',
+  
 }
 
 timeline.push(map);
