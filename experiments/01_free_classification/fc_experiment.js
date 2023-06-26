@@ -8,7 +8,7 @@ const jsPsych = initJsPsych({
       }
   });
 
-let timeline = [];
+let timeline = []; 
 
 
 
