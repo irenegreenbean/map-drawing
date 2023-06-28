@@ -81,7 +81,7 @@ timeline.push(instructions);
 const map = {
 
   type: jsPsychSketchpad,
-  prompt: '<p style="width:380px">请在以下的地图上画圈，显示您认为人们说普通话方式不同的地方。</p>',
+  prompt: '<p style="width:380px">请在以下的地图上画圈，显示您认为人们说普通话方式不同的地方。您所画的区域可以数量不限，大小不限，可以重叠。</p>',
   prompt_location: 'abovecanvas',
   stroke_color_palette: ['red'],
   stroke_color: 'red',
