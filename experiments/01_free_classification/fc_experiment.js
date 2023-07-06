@@ -52,11 +52,11 @@ const intro1 = {
 timeline.push(intro1);
 
 const intro_chinese = {
-    type: jsPsychHtmlKeyboardResponse,
+    type: jsPsychHtmlButtonResponse,
     stimulus:  `请在一间安静的屋子里做这个实验。
     <BR><BR>请用电脑来做这个实验。
-    <BR><BR>请按空格键继续。`,
-    choices: [" "],
+    <BR><BR>请点击“继续”继续。`,
+    choices: ['继续'],
 
     on_start: function() {
         jsPsych.setProgressBar(0)
@@ -66,12 +66,12 @@ timeline.push(intro_chinese);
 
 
 const instructions = {
-    type: jsPsychHtmlKeyboardResponse,
+    type: jsPsychHtmlButtonResponse,
     stimulus:  `在本实验中，你将看到一张中国大陆及周边外围地区的空白地图。您将使用计算机鼠标在地图上绘制区域，这些区域显示人们说普通话不同的地方。
     <BR><BR>绘制区域后，系统会让您标记所绘制的每个区域。
     <BR><BR>然后，您将回答一系列有关您的语言背景的简短问题。
-    <BR><BR>请按空格键继续。`,
-    choices: [" "],
+    <BR><BR>请点击“继续”继续。`,
+    choices: ['继续'],
     on_start: function() {
         jsPsych.setProgressBar(0)
     }
