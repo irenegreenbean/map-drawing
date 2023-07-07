@@ -64,6 +64,10 @@ const intro_chinese = {
 };
 timeline.push(intro_chinese);
 
+// 仅凭感觉，按你的理解
+// 方式主要指语音语调表达方式
+// 日常生活中聊天
+// 例如两个朋友聊天口语的差异，所在地区的区域
 
 const instructions = {
     type: jsPsychHtmlButtonResponse,
