@@ -403,14 +403,15 @@ timeline.push(survey2b);
 
 
 // /* payment information */
-const payment = {
+const payment_1 = {
   type: jsPsychSurveyText,
   questions: [
     {
       prompt: `
-            <p>请在以下的空处提供您的支付宝号码、email（电子邮件）、和支付宝上登记的收款人姓名（仅做转账使用）。研究人员将通过此号码来给您您参加此实验的补偿金。</p>
+            <p>接下来的几页会问您要支付宝信息，以让研究人员转您补偿金。请在以下的空处提供您的支付宝email（电子邮件）（仅做转账使用）。</p>
             `,
-      name: 'payment'
+      name: 'payment_email',
+      required: true,
 
     }
     // button_label: '继续',
@@ -420,7 +421,48 @@ const payment = {
     },
   button_label: '继续',
 };
-timeline.push(payment);
+timeline.push(payment_1);
+
+// /* payment information */
+const payment_2 = {
+  type: jsPsychSurveyText,
+  questions: [
+    {
+      prompt: `
+            <p>请在以下的空处提供您的支付宝上登记的收款人姓名（仅做转账使用）。</p>
+            `,
+      name: 'payment_name',
+      required: true,
+
+    }
+    // button_label: '继续',
+  ],
+    on_finish: function(data) {
+      jsPsych.setProgressBar(data.trial_index/140);
+    },
+  button_label: '继续',
+};
+timeline.push(payment_2);
+
+// /* payment information */
+const payment_3 = {
+  type: jsPsychSurveyText,
+  questions: [
+    {
+      prompt: `
+            <p>请在以下的空处提供您的支付宝号码（仅做转账使用）。研究人员将通过此号码来给您您参加此实验的补偿金。</p>
+            `,
+      name: 'payment_number'
+
+    }
+    // button_label: '继续',
+  ],
+    on_finish: function(data) {
+      jsPsych.setProgressBar(data.trial_index/140);
+    },
+  button_label: '继续',
+};
+timeline.push(payment_3);
 
 // /* thank u */
 const thankyou = {
