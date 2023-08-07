@@ -413,7 +413,7 @@ const payment_1 = {
             <p>接下来的几页会问您要支付宝信息，以让研究人员转您补偿金。请在以下的空处提供您的支付宝email（电子邮件）（仅做转账使用）。</p>
             `,
       name: 'payment_email',
-      required: true,
+      // required: true,
 
     }
     // button_label: '继续',
@@ -434,7 +434,7 @@ const payment_2 = {
             <p>请在以下的空处提供您的支付宝上登记的收款人姓名（仅做转账使用）。</p>
             `,
       name: 'payment_name',
-      required: true,
+      // required: true,
 
     }
     // button_label: '继续',
