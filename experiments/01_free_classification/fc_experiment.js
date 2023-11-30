@@ -127,7 +127,7 @@ const label = {
   },
   questions: [
     {
-    prompt: '请列出您画出来所有区域的标签。',
+    prompt: '请列出您画出来所有区域的名称。',
     required: true,
     },
     
