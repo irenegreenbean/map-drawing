@@ -1,0 +1,76 @@
+both,english,poly_name,n,n_or_s,l_or_p,notes
+上 (Up),Up,上,1,North,Neither,"The map which had this region labeled four regions, ""Up"", ""Down"", ""Upper right"" and ""Upper left"", corresponding to the circles that fell in those locations on the map of China."
+下 (Down),Down,下,1,South,Neither,"The map which had this region labeled four regions, ""Up"", ""Down"", ""Upper right"" and ""Upper left"", corresponding to the circles that fell in those locations on the map of China."
+上海 (Shanghai),Shanghai,上海,8,South,Place,Shanghai city and province-level municipality. 
+东北 (Northeast),Northeast,东北,32,North,Place,"""Northeast"" encompasses the three provinces of Liaoning, Jilin, and Heilongjiang."
+中原 (Middle),Middle,中原,3,North,Place,"This region encompasses an area of eastern China provinces immediately south of the Yellow River, and many regard this area as falling under the ""Northern"" category (since a majoriy of it falls north of the Yangtze River), though a small part of this region actually stretches slightly south of the Yangtze River as well."
+云南 (Yunnan),Yunnan,云南,8,South,Place,Yunnan province.
+兰州 (Lanzhou),Lanzhou,兰州,2,North,Place,"Lanzhou city, the capital of Gansu province."
+其他 (Other),Other,其他,1,Neither,Neither,"The map which had this region labeled one of its regions as ""Other""."
+内蒙 (Inner Mongolia),Inner Mongolia,内蒙,9,North,Place,Inner Mongolia Autonomous Region.
+北京 (Beijing),Beijing,北京,14,North,Place,"Beijing municipality, the capital of China."
+华北 (Huabei),Huabei,华北,4,North,Place,"Huabei Mandarin, a term used to describe the Mandarin spoken in Beijing, Tianjin, Hebei, Shanxi and Inner Mongolia."
+南京 (Nanjing),Nanjing,南京,1,South,Place,"Nanjing city, the capital of Jiangsu province."
+南昌 (Nanchang),Nanchang,南昌,1,South,Place,"Nanchang city, the capital of Jiangxi province."
+南方话 (Southern),Southern,南方话,1,South,Place,"Southern Mandarin, used to describe the Mandarin of Southern China (south of the Yangtze River)."
+口音和普通话混在一起 (Accent mixed),Accent mixed,口音和普通话混在一起,1,South,Neither,"The full label for this map region was ""口音和普通话混在一起是四川和湖北这一个圈"", which means that an accent was mixed with Putonghua, such as what this participant feels is spoken in Sichuan and Hubei provinces."
+台湾 (Taiwan),Taiwan,台湾,6,South,Place,Taiwan (the Republic of China).
+台语 (Taiwanese),Taiwanese,台语,2,South,Language,Taiwanese refers to the Hokkien (Southern Min) variety spoken in Taiwan.
+右上 (Upper right),Upper right,右上,1,North,Neither,"The map which had this region labeled four regions, ""Up"", ""Down"", ""Upper right"" and ""Upper left"", corresponding to the circles that fell in those locations on the map of China."
+吴语 (Wu (Shanghainese)),Wu (Shanghainese),吴语,13,South,Language,"Wu is a group of Sinitic languages, of which Shanghainese is a variety. Here, Wu, Shanghainese, and 上海话 all refer to the Shanghai variety of Wu (Shanghainese). "
+四川 (Sichuan),Sichuan,四川,17,South,Place,Sichuan province.
+壮话 (Zhuang),Zhuang,壮话,2,South,Language,Zhuang languages refer to the Tai languages spoken by Zhuang people (an ethnic minority in China) of the Guangxi Autonomous Region.
+天津 (Tianjin),Tianjin,天津,5,North,Place,Tianjin municipality.
+安徽 (Anhui),Anhui,安徽,1,South,Place,Anhui province.
+官话 (Guanhua),Guanhua,官话,2,Neither,Place,"""Guanhua"" corresponds closest to the English term ""Mandarin"", which encompasses all regional dialects of Mandarin. Putonghua and Guanhua are not the same; Putonghua refers to ""Standard Mandarin"", while Guanhua refers to a group of dialects. "
+客家话 (Hakka),Hakka,客家话,11,South,Language,"Hakka languages, spoke in Guangdong and Fujian provinces, as well as in Taiwan."
+少数民族口音的普通话 (Ethnic minority accent),Ethnic minority accent,少数民族口音的普通话,1,Neither,Neither,This map label explicitly stated that this referred to the accents that ethnic minority groups in China have when speaking Mandarin.
+少数民族语言 (Ethnic minority language),Ethnic minority language,少数民族语言,1,Neither,Language,Languages spoken by ethnic minority groups in China.
+山东 (Shandong),Shandong,山东,12,North,Place,Shandong province.
+山西 (Shanxi),Shanxi,山西,3,North,Place,Shanxi province.
+左上 (Upper left),Upper left,左上,1,North,Neither,"The map which had this region labeled four regions, ""Up"", ""Down"", ""Upper right"" and ""Upper left"", corresponding to the circles that fell in those locations on the map of China."
+广东 (Guangdong),Guangdong,广东,24,South,Place,Guangdong province.
+粤语 (Cantonese),Cantonese,粤语,18,South,Language,Cantonese/Yue languages.
+广州 (Guangzhou),Guangzhou,广州,2,South,Place,"Guangzhou city, the capital of Guangdong province. Guangzhou is also sometimes known as Canton."
+广西 (Guangxi),Guangxi,广西,12,South,Place,Guangxi Autonomous Region.
+香港 (Hong Kong),Hong Kong,香港,2,South,Place,Hong Kong.
+微语 (Weiyu),Weiyu,微语,1,Neither,Neither,This is not a label that corresponds to anything. I presume that the particpant made a typo.
+新疆 (Xinjiang),Xinjiang,新疆,10,Neither,Place,Xinjiang.
+晋语 (Jin),Jin,晋语,3,North,Language,"Jin refers to a set of varieties spoken in Hebei, Henan, and Shaanxi provinces, although the linguisitic classification of these varieties is still disputed on whether they classify as Mandarin dialects or a closely related but separate set of dialects. Because of this, I will classify these as ""non-Mandarin"", i.e. separate ""languages"" in my data visualization plots; however, the line between dialect and language is very fuzzy, and many of these categories are often only created for political purposes or vestiges of historical groupings of peoples, so enforcing strict categorical lines is unwise. "
+有比较重口音的 (Heavy accent),Heavy accent,有比较重口音的,1,Neither,Neither,"The full label for this map region was ""有比较重口音的：在新疆和西藏那一个圈"", which means that these regions have quite a heavy accent when speaking Mandarin, and the examples given were Xinjiang and Tibet."
+西藏 (Tibet),Tibet,西藏,8,Neither,Place,Tibet.
+朝鲜话 (North Korean),North Korean,朝鲜话,2,North,Language,"This variety of North Korean is spoken in China by ethnic minority groups in the Northeast provinces of Liaoning, Jilin, and Heilongjiang."
+比较标准的 (Close to standard),Close to standard,比较标准的,1,North,Neither,"The full label for this map region was ""比较标准的：吉林，黑龙江，北京"" which means that these regions' accents are close to Standard Mandarin, with the examples of Jilin, Heilongjiang, and Beijing given. "
+吉林 (Jilin),Jilin,吉林,2,North,Place,Jilin province.
+黑龙江 (Heilongjiang),Heilongjiang,黑龙江,3,North,Place,Heilongjiang province.
+江浙 (Jiangzhe),Jiangzhe,江浙,9,South,Place,"Today, Jiangzhe is a term used to refer to the provinces of Jiangsu and Zhejiang. In the past, the term was used to refer to a slightly different region: the part of the east coast of China that is south of the Yangtze River but north of the Qiantang River."
+江西 (Jiangxi),Jiangxi,江西,2,South,Place,Jiangxi province.
+河北 (Hebei),Hebei,河北,5,North,Place,Hebei province.
+河南 (Henan),Henan,河南,12,North,Place,Henan province.
+湖北 (Hubei),Hubei,湖北,5,South,Place,Hubei province.
+海南 (Hainan),Hainan,海南,3,South,Place,"Hainan province, an island off the southern coast of China."
+普通话 (Putonghua),Putonghua,普通话,2,Neither,Place,Putonghua is used to refer to Standard Mandarin here.
+湖南 (Hunan),Hunan,湖南,8,South,Place,Hunan province.
+湘语 (Xiang),Xiang,湘语,4,South,Language,Xiang languages are a group of Sinitic languages spoken in the Hunan province.
+赣语 (Gan),Gan,赣语,4,South,Language,"Gan languages are a group of Sinitic languages spoken in the Jiangxi province, and in some of the surrounding regions as well."
+潮汕话 (Teochew) ,Teochew,潮汕话,4,South,Language,Teochew is a Southern Min language/dialect (the line between language and dialect is very fuzzy here) spoken in eastern Guangdong.
+甘肃 (Gansu),Gansu,甘肃,4,North,Place,Gansu province.
+略带方言 (Slightly accented),Slightly accented,略带方言,1,Neither,Neither,"The full label for this map region was ""略带方言：内蒙，上海，浙江，江苏这一部分"" which means slightly accented varieties, including Inner Mongolia, Shanghai, Zhejiang, and Jiangsu."
+福建 (Fujian),Fujian,福建,5,South,Place,Fujian province.
+雷州 (Leizhou),Leizhou,雷州,1,South,Place,"Leizhou city, in Guangdong province."
+维吾尔语 (Uyghur),Uyghur,维吾尔语,3,Neither,Language,Uyghur is a Turkic language spoken by the Uyghur people in Xinjiang. 
+翼鲁官话 (Yilu),Yilu,翼鲁官话,1,North,Place,"Yilu Mandarin is a term used to describe the Mandarin spoken in Hebei, Tianjin, Shandong, Beijing, Shanxi, and Inner Mongolia. Yilu Mandarin is a ""term"" (or ""category"") in a similar way that Huabei Mandarin (above) is a ""term"" (or ""category"")."
+胶辽官话 (Jiaoliao),Jiaoliao,胶辽官话,3,North,Place,"Jiaoliao Mandarin, a ""term"" similar to the way that Yilu Mandarin and Huabei Mandarin are ""terms"", refers to the Mandarin spoken in the peninsular parts of Shandong and Liaoning, as well as parts of Heilongjiang and Jilin."
+苏州 (Suzhou),Suzhou,苏州,1,South,Place,"Suzhou city, in Jiangsu province."
+蒙语 (Mongolian),Mongolian,蒙语,3,Neither,Language,Mongolian is a Mongolic language spoken by ethnic Mongols in Inner Mongolia.
+藏语 (Tibetan),Tibetan,藏语,5,Neither,Language,Tibetan is a Tibetic language spoken by Tibetan people in Tibet.
+西北 (Northwest),Northwest,西北,7,North,Place,"The Northwest region of China refers to Shaanxi, Gansu, Qinghai (a province not yet mentioned here), Ningxia (an autonomous region not yet mentioned here), and Xinjiang. However, when referring to just the majority-Han Chinese parts of the Northwest, people often only mean Shaanxi, Gansu, and Qinghai."
+西南 (Southwest),Southwest,西南,6,South,Place,"The Southwest region of China refers to Sichuan, Chongqing (a municipality separated from Sichuan in 1997), Yunnan, Guizhou (a province not yet mentioned here), and the Qinghai-Tibet Plateau regions."
+西部 (West),West,西部,1,Neither,Place,"The ""West"" officially refers to Sichuan, Guizhou, Yunnan, Chongqing, Gansu, Qinghai, Shaanxi, Ningxia, Xinjiang, and Tibet, but among Chinese people the line where ""West"" begins is not unanimously agreed on."
+贵州 (Guizhou),Guizhou,贵州,2,South,Place,Guizhou province.
+辽宁 (Liaoning),Liaoning,辽宁,3,North,Place,Liaoning province.
+闽南话 (Southern Min),Southern Min,闽南话,18,South,Language,"Southern Min are a group of Min languages. Here specifically, this term is used to refer to specifically the Southern Min Hokkien varieties spoken in Taiwan/Fujian. Because there is a political and geopolitical boundary between Taiwan and Fujian, the term ""Taiwanese"" above was classified as Taiwanese only if the participant used the name for Taiwan (or part of the name for Taiwan) in their label. If they used ""闽南"" ('Southern Min'), it fell under this label instead. Hokkien is a specific variety that originated in the Fujian province of China. Today, though, there are many varieties/dialects/accents (fuzzy line between these ""categories"") of Hokkien and Taiwanese."
+阿拉伯语 (Arabic),Arabic,阿拉伯语,1,Neither,Language,"Arabic is a Semitic language, or a term used to describe a group of Semitic varieties. I presume the particpant who used this label assumed that Arabic is spoke in Xinjiang by Uyghurs, although Uyghurs mostly speak Uyghur instead, and instead often learn Arabic specifically for religious and cultural practices."
+宁夏 (Ningxia),Ningxia,宁夏,1,North,Place,"Ningxia Autonomous Region. Ningxia is home to the Hui people, an ethnic minority in China."
+陕西 (Shaanxi),Shaanxi,陕西,9,North,Place,Shaanxi province.
+青藏高原 (Qinghai-Tibet Plateau),Qinghai-Tibet Plateau,青藏高原,1,Neither,Place,Qinghai-Tibet Plateau is a large region that covers most of Tibet. 
